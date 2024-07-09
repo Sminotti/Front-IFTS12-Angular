@@ -1,4 +1,9 @@
-<app-nav-bar></app-nav-bar>
-<h1>Prueba de</h1>
-<app-footer></app-footer>
-<router-outlet />
+<app-nav-bar (onNewRegisterEvent)="onClickNewRegister()" />
+<section>
+  <mat-card>
+    <mat-card-content>
+      <router-outlet />
+    </mat-card-content>
+  </mat-card>
+</section>
+
