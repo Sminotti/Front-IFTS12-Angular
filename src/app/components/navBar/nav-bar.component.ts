@@ -3,12 +3,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
-const MATYERIAL_MODULES=[MatIconModule, MatButtonModule,MatToolbarModule,RouterLink]
+const MATERIAL_MODULES=[MatIconModule, MatButtonModule,MatToolbarModule,RouterLink]
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [MATYERIAL_MODULES],
+  imports: [MATERIAL_MODULES],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
