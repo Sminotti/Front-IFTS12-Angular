@@ -7,6 +7,11 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/empleados/empleados.routes'),
   },
 
+  {
+    path: 'empleados/:id',
+    loadChildren: () => import('./pages/empleados/empleados.routes'),
+  },
+
   { path: 'login', loadChildren: () => import('./pages/login/login.routes') },
 
   {
