@@ -1,34 +1,21 @@
-import { AfterViewInit, Component, input, ViewChild } from '@angular/core';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { Component, inject } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
+import { EmpleadosService } from '@services/empleados.service';
+import { Empleado } from '@models/empleados.interface';
 
-const MATERIALS_MODULES = [MatTableModule, MatPaginatorModule];
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-
+const MATERIAL_MODULES = [MatTableModule];
 
 @Component({
-  selector: 'app-table',
+  selector: 'app-Table-component',
   standalone: true,
-  imports: [MATERIALS_MODULES],
+  imports: [MATERIAL_MODULES],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })
-export class TableComponent<T> {
-  /* se recibe el nombre de las columnas desde el mismo componente
-  -------------------------------------------------------------------------------------- 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-   ------------------------------------------------------------------------------------*/
-  /* de esta forma se recibe del componente padre del que se utilice*/
-  displayedColumns = input.required<string[]>();
-  data = input.required<T[]>();
-  
-  dataSource = new MatTableDataSource<T>();
+export class TableComponent {
+  private readonly empleadoSrv = inject(EmpleadosService);
+  listarEmpleados = this.empleadoSrv.empleados;
+
+  displayedColumns: string[] = ['id', 'Apellido', 'Nombre', 'edad', 'DNI'];
+  dataSource = this.listarEmpleados;
 }
