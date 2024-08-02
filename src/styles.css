@@ -1,8 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;color:aliceblue; background-color: rgb(44, 43, 43); }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: aliceblue;
+  background-color: rgb(44, 43, 43);
+}
 
 .enviarDerecha {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+/*Filtro de busqueda para la tabla*/
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+mat-form-field {
+  margin-top: 1rem;
 }

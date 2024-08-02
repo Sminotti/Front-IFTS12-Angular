@@ -1,9 +1,7 @@
-<mat-form-field class="mt-1">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-</mat-form-field>
 
 
+
+<app-filter [label]="'Filter'" [placeholder]="'Ingrese su busqueda.....'" [(filter)]="valueToFilter"/>
 
 <div class="mat-elevation-z8">
   <table mat-table matSort [dataSource]="dataSource">
