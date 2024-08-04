@@ -14,7 +14,15 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 
 import { FilterComponent } from '../filter/filter.component';
-const MATERIAL_MODULES = [MatPaginatorModule, MatTableModule, MatSortModule];
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+const MATERIAL_MODULES = [
+  MatPaginatorModule,
+  MatTableModule,
+  MatSortModule,
+  MatButtonModule,
+  MatIconModule,
+];
 
 @Component({
   selector: 'app-Table-component',
@@ -27,6 +35,7 @@ export class TableComponent<T> implements OnInit {
   // aca recivo los encabezados de las columnas y la data del componente padre
   displayedColumns = input.required<string[]>();
   data = input.required<T[]>();
+  sortableColumns= input<string[]>();
 
   dataSource = new MatTableDataSource<T>();
   valueToFilter = signal('');

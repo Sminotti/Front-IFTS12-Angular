@@ -33,6 +33,7 @@ const ELEMENT_DATA: any[] = [
   styleUrl: './listado.component.scss',
 })
 export class ListadoComponent {
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = ['position', 'name', 'weight', 'symbol','action'];
+  sortables=['position', 'name', 'weight', 'symbol'];
   data = ELEMENT_DATA;
 }
