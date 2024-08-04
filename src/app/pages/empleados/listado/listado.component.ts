@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TableComponent } from '@components/table/table.component';
+import { ColumnsKey, Empleado } from '@models/empleados.interface';
 import { EmpleadosService } from '@services/empleados.service';
 
 const ELEMENT_DATA: any[] = [
@@ -33,7 +34,18 @@ const ELEMENT_DATA: any[] = [
   styleUrl: './listado.component.scss',
 })
 export class ListadoComponent {
-  displayedColumns = ['position', 'name', 'weight', 'symbol','action'];
-  sortables=['position', 'name', 'weight', 'symbol'];
-  data = ELEMENT_DATA;
+  displayedColumns:ColumnsKey<Empleado> = ['idPersona', 'apellido', 'nombre', 'edad','dni','action'];
+  sortables:ColumnsKey<Empleado>=['idPersona', 'apellido', 'nombre', 'edad','dni'];
+  data!: Empleado[];
+  constructor(private empleadosService: EmpleadosService){
+    
+  }
+
+
+  ngOnInit(): void {
+    this.empleadosService.getEmpleados().subscribe((empleados: Empleado[]) => {
+      this.data=empleados;
+    });
+  
+  }
 }

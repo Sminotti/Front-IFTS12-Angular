@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Empleado } from '@models/empleados.interface';
 import { environment } from 'envairoments/enviroment';
-
 
 @Injectable({
   providedIn: 'root',
@@ -13,14 +12,17 @@ export class EmpleadosService {
   private readonly _http = inject(HttpClient);
   private readonly _endPoint = environment.apiURL;
 
-  public getEmpleados(): void {
-    this._http
-      .get<any[]>(`${this._endPoint}/Views/listado-Back-End.php`)
-      .pipe(tap((data: Empleado[]) => this.empleados.set(data)))
-      .subscribe();
+  public getEmpleados(): Observable<Empleado[]> {
+    return this._http.get<Empleado[]>(
+      `${this._endPoint}/Views/listado-Back-End.php`
+    );
+    /*    .pipe(tap((data: Empleado[]) => this.empleados.set(data)))
+      .subscribe();*/
   }
   getEmpleadosById(id: number) {
-    return this._http.get<Empleado>(`${this._endPoint}/Views/listado-Back-End.php/${id}`);
+    return this._http.get<Empleado>(
+      `${this._endPoint}/Views/listado-Back-End.php/${id}`
+    );
   }
 
   constructor() {

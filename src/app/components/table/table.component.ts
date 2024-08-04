@@ -58,5 +58,8 @@ export class TableComponent<T> implements OnInit {
     this.dataSource.data = this.data();
     this.dataSource.sort = this._sort();
     this.dataSource.paginator = this._paginator();
+
+    
+
   }
 }

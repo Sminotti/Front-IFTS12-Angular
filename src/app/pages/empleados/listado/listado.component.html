@@ -1,3 +1,9 @@
 <section>
-<app-Table-component [displayedColumns]="displayedColumns" [data]="data" [sortableColumns]="sortables"/>
+  @if (data) {
+  <app-Table-component
+    [displayedColumns]="displayedColumns"
+    [data]="data"
+    [sortableColumns]="sortables"
+  />
+  }
 </section>
