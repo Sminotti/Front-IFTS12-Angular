@@ -14,14 +14,20 @@ export class EmpleadosService {
 
   public getEmpleados(): Observable<Empleado[]> {
     return this._http.get<Empleado[]>(
-      `${this._endPoint}/Views/listado-Back-End.php`
+      `${this._endPoint}/Api/empleados.php`
     );
     /*    .pipe(tap((data: Empleado[]) => this.empleados.set(data)))
       .subscribe();*/
   }
-  getEmpleadosById(id: number) {
+  public getEmpleadosById(id: number) {
     return this._http.get<Empleado>(
-      `${this._endPoint}/Views/listado-Back-End.php/${id}`
+      `${this._endPoint}/Api/empleados.php/${id}`
+    );
+  }
+
+  public eliminarEmpleado(id:number){
+    return this._http.get<Empleado>(
+      `${this._endPoint}/Api/empleados.php/${id}/del`
     );
   }
 
